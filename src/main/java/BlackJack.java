@@ -31,7 +31,7 @@ public class BlackJack {
         if (myCard == 12) {
             myScore += aceNumero(myCard);
         } else if (myCard > 8 && myCard < 12) {
-            myScore += figureNumero(myCard);
+            myScore += figureCard(myCard);
         } else {
             myScore += Integer.parseInt(cards[myCard]);
         }
@@ -68,8 +68,8 @@ public class BlackJack {
                 push = true;
             }
 
-            System.out.println("Computer lap: " + cards[myCard]);
-            System.out.println("Computer score: " + computerScore);
+            System.out.println("Bank lap: " + cards[myCard]);
+            System.out.println("Bank lapösszeg: " + computerScore);
         } while ((!push));
         return computerScore;
     }
@@ -133,7 +133,7 @@ public class BlackJack {
         return plusPoint;
     }
 
-    private int figureNumero(int myCard) {
+    private int figureCard(int myCard) {
         int plusPoint = 0;
         if (myCard > 8 && myCard < 12) {
             plusPoint = 10;
