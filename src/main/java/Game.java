@@ -52,7 +52,7 @@ public class Game {
                     showMenu();
                     break;
                 case 3:
-                    BlackJack blackJack = new BlackJack();
+                    BlackJackGame blackJack = new BlackJackGame();
                     blackJack.gameControl();
                     showMenu();
                     break;

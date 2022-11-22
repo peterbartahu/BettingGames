@@ -1,27 +1,26 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class BlackJack {
+public class BlackJackGame {
 
     public void gameControl() {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
 
-        boolean nextFlop = true;
 
         String[] cards = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "D", "K", "A"}; // 13
-        int myScore = playerGame(scanner, random, nextFlop, cards);
-        int computerScore= computerGame(random, myScore, cards);
+
+        int myScore = playerGame(cards);
+        int computerScore = computerGame(myScore, cards);
+
         System.out.println(whoWin(myScore, computerScore));
 
     }
 
     private String whoWin(int score1, int score2) {
-        if(score1 > score2){
+        if ((score1 <= 21 && score2 > 21) || score1 > score2) {
             return "Ön nyert!";
-        }else if(score1 == score2){
+        } else if (score1 == score2) {
             return "Döntetlen!";
-        }else {
+        } else {
             return "A Bank nyert!";
         }
 
@@ -38,7 +37,8 @@ public class BlackJack {
         return myScore;
     }
 
-    private int computerGame(Random random, int playerScore, String[] cards) {
+    private int computerGame(int playerScore, String[] cards) {
+        Random random = new Random();
         boolean push = false;
         int computerScore = 0;
 
@@ -60,13 +60,10 @@ public class BlackJack {
                 computerScore += Integer.parseInt(cards[myCard]);
             }
 
-            if(computerScore == playerScore){
+            if (computerScore == playerScore || computerScore > playerScore) {
                 push = true;
             }
 
-            if (computerScore > playerScore && computerScore <= 21 || computerScore > 21) {
-                push = true;
-            }
 
             System.out.println("Bank lap: " + cards[myCard]);
             System.out.println("Bank lapösszeg: " + computerScore);
@@ -74,7 +71,10 @@ public class BlackJack {
         return computerScore;
     }
 
-    private int playerGame(Scanner scanner, Random random, boolean nextFlop, String[] cards) {
+    private int playerGame(String[] cards) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        boolean nextFlop = true;
         int myScore = 0;
         while (nextFlop) {
             System.out.println("Kérem laphúzáshoz nyomja meg a 0(nulla)-ás billentyűt\nvagy ha meg szeretne állni akkor nyomja meg az 1(egy)-es billentyűt. ");
@@ -86,7 +86,6 @@ public class BlackJack {
                     System.out.println("Az Ön lapja: " + cards[myCard]);
 
                     myScore = score(myScore, cards, myCard);
-
 
                     if (myScore <= 21) {
                         System.out.println("Az Ön jelenlegi Összege: " + myScore);
