@@ -1,3 +1,5 @@
+package lottery;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,8 +12,7 @@ public class LotteryNumberCreator{
         this.slots = slots;
         this.min = min;
         this.max = max;
-        ArrayList<Integer> mix = lotteryNumberMix(slots,min,max);
-        this.lotteryNumbers = mix;
+        this.lotteryNumbers  = lotteryNumberMix(slots,min,max);
     }
 
     public ArrayList<Integer> getLotteryNumbers() {

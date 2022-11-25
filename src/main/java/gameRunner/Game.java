@@ -1,3 +1,9 @@
+package gameRunner;
+
+import blackJack.BlackJackGame;
+import lottery.LotteryNumberCreator;
+import lottery.PlayerNumber;
+import lottery.WinningNumbers;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -12,7 +18,7 @@ public class Game {
         System.out.println("Sok szeretettel üdvözljük és sikeres játékot kíváunk!");
         System.out.printf("A mai dátum: %1$tY. %1$tm. %1$te. \n", Calendar.getInstance());
 
-        showMenu();
+        new Menu().showMenu();
 
         while (flag) {
 
@@ -21,7 +27,7 @@ public class Game {
             int option = scanner.nextInt();
             switch (option) {
                 case 0:
-                    showMenu();
+                    new Menu().showMenu();
                     break;
                 case 1:
                     PlayerNumber playerNumbersForFive = new PlayerNumber(5);
@@ -29,13 +35,13 @@ public class Game {
 
 
                     System.out.println("\nAz Ön számai: ");
-                    showNumbers(playerNumbersForFive.getPlayerNumbers());
+                    showLotteries(playerNumbersForFive.getPlayerNumbers());
 
                     System.out.println("\nA sorsolás számai: ");
-                    showNumbers(lotteryNumbersCreatorForFive.getLotteryNumbers());
+                    showLotteries(lotteryNumbersCreatorForFive.getLotteryNumbers());
 
                     System.out.println("\n" + haveWinningNumber.winningNumbers(playerNumbersForFive.getPlayerNumbers(), lotteryNumbersCreatorForFive.getLotteryNumbers()));
-                    showMenu();
+                    new Menu().showMenu();
                     break;
 
                 case 2:
@@ -43,18 +49,18 @@ public class Game {
                     LotteryNumberCreator lotteryNumbersCreatorForSix = new LotteryNumberCreator(6, 1, 90);
 
                     System.out.println("\nAz Ön számai: ");
-                    showNumbers(playerNumbersForSix.getPlayerNumbers());
+                    showLotteries(playerNumbersForSix.getPlayerNumbers());
 
                     System.out.println("\nA sorsolás számai: ");
-                    showNumbers(lotteryNumbersCreatorForSix.getLotteryNumbers());
+                    showLotteries(lotteryNumbersCreatorForSix.getLotteryNumbers());
 
                     System.out.println("\n" + haveWinningNumber.winningNumbers(playerNumbersForSix.getPlayerNumbers(), lotteryNumbersCreatorForSix.getLotteryNumbers()));
-                    showMenu();
+                    new Menu().showMenu();
                     break;
                 case 3:
                     BlackJackGame blackJack = new BlackJackGame();
                     blackJack.gameControl();
-                    showMenu();
+                    new Menu().showMenu();
                     break;
                 case 4:
                     System.out.println("\nKöszönjük a játékot!");
@@ -64,17 +70,8 @@ public class Game {
         }
     }
 
-    private void showMenu() {
-        System.out.println("\nKérem válasszon az alábbi opciók közül");
-        System.out.println("\t 0 - Menü mutatása");
-        System.out.println("\t 1 - Ötös lottó játék");
-        System.out.println("\t 2 - Hatos lottó játék");
-        System.out.println("\t 3 - BlackJack");
-        System.out.println("\t 4 - Kilépés");
-        System.out.print("\nMenü pont: ");
-    }
 
-    private void showNumbers(ArrayList<Integer> myList) {
+    private void showLotteries(ArrayList<Integer> myList) {
         Collections.sort(myList);
         for (int i = 0; i < myList.size(); i++) {
             System.out.print(myList.get(i) + " ");

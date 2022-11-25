@@ -1,3 +1,5 @@
+package lottery;
+
 import java.util.ArrayList;
 
 public class WinningNumbers {
