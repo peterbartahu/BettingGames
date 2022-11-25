@@ -11,7 +11,7 @@ public class BlackJackGame {
         player.gameNow();
 
         if(player.getPlayerScore() <=21){
-            bank.gameNow(player.getPlayerScore());
+            bank.bankSimulation(player.getPlayerScore());
             whoWin(player.getPlayerScore(),bank.getBankScore());
         }
 
