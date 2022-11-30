@@ -1,10 +1,10 @@
-package gameRunner;
+package org.peter.gamerunner;
 
-import blackJack.BlackJackGame;
-import lottery.LotteryNumberCreator;
-import lottery.PlayerNumber;
-import lottery.WinningNumbers;
-import java.util.ArrayList;
+import java.util.List;
+import org.peter.lottery.LotteryNumberCreator;
+import org.peter.lottery.LotteryNumbers;
+import org.peter.lottery.PlayerGame;
+import org.peter.lottery.WinningNumbers;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Scanner;
@@ -21,44 +21,50 @@ public class Game {
         new Menu().showMenu();
 
         while (flag) {
-
-            WinningNumbers haveWinningNumber = new WinningNumbers();
-
             int option = scanner.nextInt();
             switch (option) {
                 case 0:
                     new Menu().showMenu();
                     break;
                 case 1:
-                    PlayerNumber playerNumbersForFive = new PlayerNumber(5);
-                    LotteryNumberCreator lotteryNumbersCreatorForFive = new LotteryNumberCreator(5, 1, 45);
+
+                    new PlayerGame().playerNumberMix(5);
+                    new LotteryNumberCreator().lotteryNumberMix(5);
 
 
                     System.out.println("\nAz Ön számai: ");
-                    showLotteries(playerNumbersForFive.getPlayerNumbers());
+                    showLotteries(LotteryNumbers.getPlayerNumbers());
 
                     System.out.println("\nA sorsolás számai: ");
-                    showLotteries(lotteryNumbersCreatorForFive.getLotteryNumbers());
+                    showLotteries(LotteryNumbers.getLotteryNumbers());
 
-                    System.out.println("\n" + haveWinningNumber.winningNumbers(playerNumbersForFive.getPlayerNumbers(), lotteryNumbersCreatorForFive.getLotteryNumbers()));
+                    LotteryNumbers.clearNumbers();
+
+                    System.out.println("\n" + new WinningNumbers().winningNumbers());
+
+
                     new Menu().showMenu();
                     break;
 
                 case 2:
-                    PlayerNumber playerNumbersForSix = new PlayerNumber(6);
-                    LotteryNumberCreator lotteryNumbersCreatorForSix = new LotteryNumberCreator(6, 1, 90);
+                    new PlayerGame().playerNumberMix(6);
+                    new LotteryNumberCreator().lotteryNumberMix(6);
 
                     System.out.println("\nAz Ön számai: ");
-                    showLotteries(playerNumbersForSix.getPlayerNumbers());
+                    showLotteries(LotteryNumbers.getPlayerNumbers());
 
                     System.out.println("\nA sorsolás számai: ");
-                    showLotteries(lotteryNumbersCreatorForSix.getLotteryNumbers());
+                    showLotteries(LotteryNumbers.getLotteryNumbers());
 
-                    System.out.println("\n" + haveWinningNumber.winningNumbers(playerNumbersForSix.getPlayerNumbers(), lotteryNumbersCreatorForSix.getLotteryNumbers()));
+                    LotteryNumbers.clearNumbers();
+
+
+                    System.out.println("\n" + new WinningNumbers().winningNumbers());
+
                     new Menu().showMenu();
                     break;
                 case 3:
-                    BlackJackGame blackJack = new BlackJackGame();
+                    org.peter.blackjack.Game blackJack = new org.peter.blackjack.Game();
                     blackJack.gameControl();
                     new Menu().showMenu();
                     break;
@@ -71,7 +77,7 @@ public class Game {
     }
 
 
-    private void showLotteries(ArrayList<Integer> myList) {
+    private void showLotteries(List<Integer> myList) {
         Collections.sort(myList);
         for (int i = 0; i < myList.size(); i++) {
             System.out.print(myList.get(i) + " ");

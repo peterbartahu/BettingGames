@@ -33,7 +33,7 @@
                         <index>true</index>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>Main</mainClass>
+                            <mainClass>org.peter.gamerunner.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

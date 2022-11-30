@@ -1,9 +1,9 @@
-package blackJack;
+package org.peter.blackjack;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class BlackJackPlayer extends BlackJackCards {
+public class PlayerGame {
     int playerScore;
 
     public int getPlayerScore() {
@@ -17,7 +17,6 @@ public class BlackJackPlayer extends BlackJackCards {
     private int playerGame() {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        BlackJackCards cards = new BlackJackCards();
 
         int myScore = 0;
 
@@ -29,9 +28,9 @@ public class BlackJackPlayer extends BlackJackCards {
             if (pick.equals("1") || pick.equals("0")) {
                 int pickValue = Integer.parseInt(pick);
                 if (pickValue == 0) {
-                    int cardIndex = random.nextInt(13);
-                    System.out.println("Az Ön lapja: " + cards.getCard(cardIndex));
-                    if (cardIndex == 12) {
+                    int cardIndex = random.nextInt(Cards.length());
+                    System.out.println("Az Ön lapja: " + Cards.getCard(cardIndex));
+                    if (cardIndex == Cards.length()-1) {
                         boolean valid = false;
                         while (!valid) {
                             System.out.println("Ön Ászt húzott!\nKérem döntse el hogy 1 vagy 11 értékkel szeretné felvenni?");

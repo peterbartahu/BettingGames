@@ -1,11 +1,11 @@
-package blackJack;
+package org.peter.blackjack;
 
-public class BlackJackGame {
+public class Game {
 
     public void gameControl() {
 
-        BlackJackPlayer player = new BlackJackPlayer();
-        BlackJackBank bank = new BlackJackBank();
+        PlayerGame player = new PlayerGame();
+        ComputerPlayer bank = new ComputerPlayer();
 
 
         player.gameNow();

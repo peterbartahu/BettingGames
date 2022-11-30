@@ -1,4 +1,4 @@
-package gameRunner;
+package org.peter.gamerunner;
 
 public class Menu {
     public void showMenu() {

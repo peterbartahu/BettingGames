@@ -1,4 +1,6 @@
-import gameRunner.Game;
+package org.peter.gamerunner;
+
+import org.peter.gamerunner.Game;
 
 public class Main {
     public static void main(String[] args) {

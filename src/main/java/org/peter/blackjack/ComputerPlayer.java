@@ -1,8 +1,8 @@
-package blackJack;
+package org.peter.blackjack;
 
 import java.util.Random;
 
-public class BlackJackBank{
+public class ComputerPlayer {
     int bankScore = 0;
 
     public int getBankScore() {
@@ -17,11 +17,10 @@ public class BlackJackBank{
         Random random = new Random();
         boolean push = false;
 
-        BlackJackCards cards = new BlackJackCards();
         int bankScore = 0;
 
         do {
-            int myCard = random.nextInt(13);
+            int myCard = random.nextInt(Cards.length());
 
             if (myCard == 12) {
                 if (bankScore >= 11) {
@@ -35,7 +34,7 @@ public class BlackJackBank{
                 bankScore += myCard + 2;
             }
 
-            System.out.println("Bank lap: " + cards.getCard(myCard));
+            System.out.println("Bank lap: " + Cards.getCard(myCard));
             System.out.println("Bank lapösszeg: " + bankScore + "\n");
 
             if (bankScore == playerScore || bankScore > playerScore || bankScore > 21) {
@@ -46,4 +45,5 @@ public class BlackJackBank{
 
         return bankScore;
     }
+
 }
