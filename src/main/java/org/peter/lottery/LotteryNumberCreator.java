@@ -1,15 +1,14 @@
 package org.peter.lottery;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 public class LotteryNumberCreator {
 
+    public void lotteryNumbers(int slots) {
+        lotteryNumberMix(slots);
+    }
 
-    public void lotteryNumberMix(int slots) {
+    private void lotteryNumberMix(int slots) {
         int min = 1;
         int max = 0;
         if (slots == 5) {
@@ -19,7 +18,6 @@ public class LotteryNumberCreator {
         }
         boolean flag = false;
         Random random = new Random();
-
 
         for (int i = 0; i < slots; i++) {
             int lotteryNumber = random.nextInt((max + 1) - min) + min;

@@ -23,7 +23,7 @@ public final class LotteryNumbers {
         playerNumbers.add(number);
     }
 
-    public static void clearNumbers(){
+    public static void clearLists() {
         lotteryNumbers = new ArrayList<>();
         playerNumbers = new ArrayList<>();
     }

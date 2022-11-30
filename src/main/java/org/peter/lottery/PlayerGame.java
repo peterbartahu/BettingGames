@@ -4,9 +4,17 @@ import java.util.Scanner;
 
 public class PlayerGame {
 
-    public void playerNumberMix(int slots) {
+    public void playerGame(int slots) {
+        if (slots == 5)
+            playerNumberMix(5);
 
+        if (slots == 6)
+            playerNumberMix(5);
+    }
+
+    private void playerNumberMix(int slots) {
         Scanner scanner = new Scanner(System.in);
+
         int maxNumber = 0;
 
         if (slots == 5) {
@@ -32,7 +40,7 @@ public class PlayerGame {
                         i++;
                     }
                 } else {
-                    System.out.println("Hibás szám");
+                    System.out.println("A szám a megengedett tartományon kívül esik. Kérem figyeljen hogy a szám minimum 1 és maximum " + maxNumber + " lehet.");
                 }
             } else {
                 System.out.println("Hibás szám");
