@@ -27,10 +27,10 @@ public class Game {
                     showMenu();
                     break;
                 case 1:
-                    lottery(5);
+                    lotteryGame(5);
                     break;
                 case 2:
-                    lottery(6);
+                    lotteryGame(6);
                     break;
                 case 3:
                     GameRound blackJack = new GameRound();
@@ -45,18 +45,19 @@ public class Game {
         }
     }
 
-    private void lottery(int slots) {
-        new PlayerGame().playerGame(slots);
-        new LotteryNumberCreator().lotteryNumbers(slots);
+    private void lotteryGame(int slots) {
+        LotteryNumbers lotteryNumbers = new LotteryNumbers();
+        lotteryNumbers.setLotteryNumbers(LotteryNumberCreator.lotteryNumberMix(slots));
+        lotteryNumbers.setPlayerNumbers(PlayerGame.playerNumberMix(slots));
 
         System.out.println("\nAz Ön számai: ");
-        showLotteries(LotteryNumbers.getPlayerNumbers());
+        showLotteries(lotteryNumbers.getPlayerNumbers());
 
         System.out.println("\nA sorsolás számai: ");
-        showLotteries(LotteryNumbers.getLotteryNumbers());
-        System.out.println("\n" + new WinningNumbers().winningNumbers());
-        LotteryNumbers.clearLists();
+        showLotteries(lotteryNumbers.getLotteryNumbers());
+        System.out.println("\n" + new WinningNumbers().winningNumbers(lotteryNumbers.getPlayerNumbers(), lotteryNumbers.getLotteryNumbers()));
 
+        lotteryNumbers.clearLists();
         showMenu();
     }
 
@@ -78,3 +79,4 @@ public class Game {
         System.out.print("\nMenü pont: ");
     }
 }
+

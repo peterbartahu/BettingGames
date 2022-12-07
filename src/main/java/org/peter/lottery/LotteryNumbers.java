@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class LotteryNumbers {
-    public static List<Integer> lotteryNumbers = new ArrayList<>();
-    public static List<Integer> playerNumbers = new ArrayList<>();
+    private List<Integer> lotteryNumbers = new ArrayList<>();
+    private List<Integer> playerNumbers = new ArrayList<>();
 
-    public static List<Integer> getLotteryNumbers() {
-        return lotteryNumbers;
+    public List<Integer> getLotteryNumbers() {
+        return this.lotteryNumbers;
     }
 
-    public static List<Integer> getPlayerNumbers() {
-        return playerNumbers;
+    public List<Integer> getPlayerNumbers() {
+        return this.playerNumbers;
     }
 
-    public static void addLotteryNumber(int number) {
-        lotteryNumbers.add(number);
+    public void setLotteryNumbers(List<Integer> numbers) {
+        this.lotteryNumbers = numbers;
     }
 
-    public static void addPlayerNumbers(int number) {
-        playerNumbers.add(number);
+    public void setPlayerNumbers(List<Integer> numbers) {
+        this.playerNumbers = numbers;
     }
 
-    public static void clearLists() {
-        lotteryNumbers = new ArrayList<>();
-        playerNumbers = new ArrayList<>();
+    public  void clearLists() {
+        this.lotteryNumbers = new ArrayList<>();
+        this.playerNumbers = new ArrayList<>();
     }
 }

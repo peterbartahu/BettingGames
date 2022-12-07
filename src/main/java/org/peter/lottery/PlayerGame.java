@@ -1,28 +1,20 @@
 package org.peter.lottery;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PlayerGame {
 
-    public void playerGame(int slots) {
-        if (slots == 5)
-            playerNumberMix(5);
-
-        if (slots == 6)
-            playerNumberMix(5);
-    }
-
-    private void playerNumberMix(int slots) {
+    public static List<Integer> playerNumberMix(int slots) {
         Scanner scanner = new Scanner(System.in);
-
+        List<Integer> playerNumbers = new ArrayList<>();
         int maxNumber = 0;
-
         if (slots == 5) {
             maxNumber = 45;
         } else if (slots == 6) {
             maxNumber = 90;
         }
-
         int i = 0;
 
         while (i != slots) {
@@ -33,10 +25,10 @@ public class PlayerGame {
             if (isNumber(playerLotteries)) {
                 int myNumber = Integer.parseInt(playerLotteries);
                 if (myNumber > 0 && myNumber <= maxNumber) {
-                    if (LotteryNumbers.getPlayerNumbers().contains(myNumber)) {
+                    if (playerNumbers.contains(myNumber)) {
                         System.out.println("Ez a szám már szerepel a listában.");
                     } else {
-                        LotteryNumbers.addPlayerNumbers(myNumber);
+                        playerNumbers.add(myNumber);
                         i++;
                     }
                 } else {
@@ -46,6 +38,7 @@ public class PlayerGame {
                 System.out.println("Hibás szám");
             }
         }
+        return playerNumbers;
     }
 
     private static boolean isNumber(String numb) {
