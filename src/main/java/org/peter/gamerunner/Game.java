@@ -1,7 +1,6 @@
 package org.peter.gamerunner;
 
 import java.util.List;
-import org.peter.blackjack.GameRound;
 import org.peter.lottery.LotteryNumberCreator;
 import org.peter.lottery.LotteryNumbers;
 import org.peter.lottery.PlayerGame;
@@ -33,7 +32,7 @@ public class Game {
                     lotteryGame(6);
                     break;
                 case 3:
-                    GameRound blackJack = new GameRound();
+                    org.peter.blackjack.Game blackJack = new org.peter.blackjack.Game();
                     blackJack.gameControl();
                     showMenu();
                     break;

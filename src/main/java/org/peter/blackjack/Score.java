@@ -2,22 +2,26 @@ package org.peter.blackjack;
 
 public class Score {
 
-    private static int playerScore = 0;
-    private static int computerScore = 0;
+    private int playerScore;
+    private int computerScore;
 
-    public static int getPlayerScore() {
+    public int getPlayerScore() {
         return playerScore;
     }
 
-    public static int addPlayerScore(int score) {
-        return playerScore += score;
+    public void addPlayerScore(int score) {
+        playerScore += score;
     }
 
-    public static int getComputerScore() {
+    public int getComputerScore() {
         return computerScore;
     }
 
-    public static void addComputerScore(int score) {
+    public void addComputerScore(int score) {
         computerScore += score;
+    }
+    public void resetScores(){
+        this.computerScore = 0;
+        this.playerScore = 0;
     }
 }

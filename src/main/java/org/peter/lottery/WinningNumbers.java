@@ -1,7 +1,6 @@
 package org.peter.lottery;
 
 import java.util.List;
-//Singleton Controller
 public class WinningNumbers {
     public String winningNumbers(List<Integer> playerNumbers, List<Integer> lotteryNumbers) {
         int score = 0;

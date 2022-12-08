@@ -4,30 +4,33 @@ package org.peter.blackjack;
 public class ComputerPlayer {
 
 
-    public static int computerGame() {
-
-
-        System.out.println("A Bank köre: ");
-
-        int cardIndex = Dealer.giveCard();
-        int cardValue = CardValue.valueGenerator(cardIndex);
-        if (cardIndex == 12) {
-            if (Score.getComputerScore() <= 10) {
-                Score.addComputerScore(11);
+    public static int computerGame(int score) {
+        int cScore = 0;
+        boolean flag = true;
+        System.out.println("A Bank köre következik: ");
+        while (flag && !(cScore>21) ) {
+            int dealerCard = Dealer.giveCard();
+            if (dealerCard == 12) {
+                if (cScore < 10) {
+                    System.out.println("Bank Ász lapot húzott. A választott érték: 11");
+                    cScore += 11;
+                } else {
+                    System.out.println("Bank Ász lapot húzott. A választott érték: 1");
+                    cScore += 1;
+                }
+            } else if (dealerCard > 8 && dealerCard < 12) {
+                cScore += 10;
             } else {
-                Score.addComputerScore(1);
+                cScore += CardValueGenerator.valueGenerator(dealerCard);
             }
-        } else if (cardValue > 8 && cardValue < 12) {
-            Score.addComputerScore(10);
-        } else {
-            Score.addComputerScore(cardIndex + 2);
+            if (cScore > score || cScore == score || cScore == 21) {
+                flag = false;
+            }
+            System.out.println("A Bank pontjai: " + cScore);
+
         }
 
-
-        System.out.println("A Bank pontjai: " + Score.getComputerScore() + "\n");
-
-
-        return Score.getComputerScore();
+        return cScore;
     }
 }
 

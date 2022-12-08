@@ -3,7 +3,7 @@ package org.peter.lottery;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class LotteryNumbers {
+public class LotteryNumbers {
     private List<Integer> lotteryNumbers = new ArrayList<>();
     private List<Integer> playerNumbers = new ArrayList<>();
 
