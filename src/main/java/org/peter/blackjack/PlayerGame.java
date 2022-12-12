@@ -16,11 +16,9 @@ public class PlayerGame {
                 if (pick.equals("0")) {
                     score += CardValueGenerator.valueGenerator(Dealer.giveCard());
                     System.out.println("Az Ön Pontjai: " + score + "\n");
-                    if(score > 21){
-                        System.out.println("Ön vesztett mert a lapjainak az összege meghaladja a 21-et.");
+                    if (score > 21) {
                         flag = false;
                     }
-
                 } else if (pick.equals("1")) {
                     System.out.println("Ön megállt. Az eredménye: " + score + "\n");
                     flag = false;
