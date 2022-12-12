@@ -6,12 +6,10 @@ public class BankPlayer {
     public static int computerGame(int score) {
         int cScore = 0;
         boolean flag = true;
-        if (score > 21) {
 
-        } else {
-
+        if (!(score > 21)) {
             System.out.println("A Bank köre következik: ");
-            while (flag && !(cScore > 21) && !(score > 21)) {
+            while (flag) {
 
                 int dealerCard = Dealer.giveCard();
                 if (dealerCard == 12) {
