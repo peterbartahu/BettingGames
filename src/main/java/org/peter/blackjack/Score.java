@@ -20,8 +20,4 @@ public class Score {
     public void addComputerScore(int score) {
         computerScore += score;
     }
-    public void resetScores(){
-        this.computerScore = 0;
-        this.playerScore = 0;
-    }
 }

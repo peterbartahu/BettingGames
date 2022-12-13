@@ -5,19 +5,18 @@ import java.util.Scanner;
 public class CardValueGenerator {
     public static int valueGenerator(int index) {
         Scanner scanner = new Scanner(System.in);
-        int generatedValue = 0;
-
+        int cardValue = 0;
         if (index == 12) {
             while (true) {
-                System.out.println("Ön ászt húzott, kérem döntse el az értékét");
+                System.out.println("Ön ászt húzott, kérem üsse be hogy 1 vagy 11 értéket szeretne választani a laphoz.");
                 String aceValue = scanner.nextLine();
                 if (aceValue.equals("1")) {
                     int number = Integer.parseInt(aceValue);
-                    generatedValue += number;
+                    cardValue += number;
                     break;
                 } else if (aceValue.equals("11")) {
                     int number = Integer.parseInt(aceValue);
-                    generatedValue += number;
+                    cardValue += number;
                     break;
                 } else {
                     System.out.println("Hibás érték");
@@ -25,10 +24,10 @@ public class CardValueGenerator {
             }
 
         } else if (index >= 0 && index <= 8) {
-            generatedValue += (index + 2);
+            cardValue += (index + 2);
         } else if (index > 8 && index < 12) {
-            generatedValue += 10;
+            cardValue += 10;
         }
-        return generatedValue;
+        return cardValue;
     }
 }
