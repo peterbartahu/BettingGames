@@ -1,18 +1,15 @@
 package org.peter.blackjack;
 
-
 public class BankPlayer {
-
-    public static int computerSimulation(int playerScore) {
+    public static int computerSimulation(final int playerScore) {
         int bankScore = 0;
         boolean flag = true;
-
         if (!(playerScore > 21)) {
             System.out.println("A Bank köre következik: ");
             while (flag) {
-                int dealerCard = Dealer.giveCard();
+                final int dealerCard = Dealer.giveCard();
                 if (dealerCard == 12) {
-                    if (bankScore < 10) {
+                    if (bankScore <= 10) {
                         System.out.println("Bank Ász lapot húzott. A választott érték: 11");
                         bankScore += 11;
                     } else {
