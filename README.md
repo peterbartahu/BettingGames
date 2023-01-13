@@ -31,7 +31,7 @@ After maven install, you can run JAR file from target folder
 
 cmd prompt: 
 
-cd ...\MyGame-master
+cd ...\BettingGames-master
 
 mvn package
 
