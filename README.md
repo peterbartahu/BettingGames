@@ -35,12 +35,10 @@ cd ...\BettingGames-master
 
 mvn package
 
-java -cp target\BettingGames-1.0-SNAPSHOT.jar Main
-
-
 cd ...\BettingGames-master\target
 
 java -jar BettingGames-1.0-SNAPSHOT.jar
+
 
 ## Features
 
