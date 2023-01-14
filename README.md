@@ -11,13 +11,13 @@ Online kaszinó játék ahol tudsz játszani lottó játékokat, valamint blackj
 
 Java JDK 11
 
-Maven version 3.8.1
+Maven verzió 3.8.1
 ## Install
 
 
 Maven -> Lifecyle -> Install
 
-OR
+VAGY
 
 Command line
 
@@ -27,7 +27,7 @@ mvn package
 
 ## Execution
 
-After maven install, you can run JAR file from target folder
+Az install után tudod futtatni a JAR file-t a target mappából
 
 cmd prompt: 
 
